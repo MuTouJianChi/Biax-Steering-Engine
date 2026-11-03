@@ -34,8 +34,8 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define YAW_STEP    30      // 每次Yaw移动的步长
-#define PITCH_STEP  30      // 每次Pitch移动的步长
+#define YAW_STEP    100      // 每次Yaw移动的步长
+#define PITCH_STEP  100     // 每次Pitch移动的步长
 
 #define YAW_MIN     500     // Yaw最小脉冲宽度 ,对应0°
 #define YAW_MAX     2500    // Yaw最大脉冲宽度 ,对应180°
@@ -163,23 +163,23 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
   {
     switch (rx_data)
     {
-      case 'w':
-      case 'W':
+      case 's':
+      case 'S':
         current_pitch += PITCH_STEP;
         if (current_pitch > PITCH_MAX) current_pitch = PITCH_MAX;
         break;
-      case 's':
-      case 'S':
+      case 'w':
+      case 'W':
         current_pitch -= PITCH_STEP;
         if (current_pitch < PITCH_MIN) current_pitch = PITCH_MIN;
         break;
-      case 'a':
-      case 'A':
+      case 'd':
+      case 'D':
         current_yaw -= YAW_STEP;
         if (current_yaw < YAW_MIN) current_yaw = YAW_MIN;
         break;
-      case 'd':
-      case 'D':
+      case 'a':
+      case 'A':
         current_yaw += YAW_STEP;
         if (current_yaw > YAW_MAX) current_yaw = YAW_MAX;
         break;
