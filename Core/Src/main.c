@@ -52,7 +52,7 @@
 
 /* USER CODE BEGIN PV */
 volatile uint16_t current_yaw = 1500;
-volatile uint16_t current_pitch = 500;
+volatile uint16_t current_pitch = 550;
 
 uint8_t rx_data;
 /* USER CODE END PV */
